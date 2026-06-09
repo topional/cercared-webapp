@@ -83,13 +83,11 @@
   cursor: pointer;
 }
 
-.nav-toggle span {
+.nav-toggle-icon {
   display: block;
-  width: 20px;
-  height: 2px;
-  margin: 4px auto;
-  background: var(--color-primary);
-  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  margin: auto;
 }
 
 @media (max-width: 900px) {
