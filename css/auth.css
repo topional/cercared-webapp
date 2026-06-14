@@ -157,6 +157,7 @@ body {
   flex-shrink: 0;
 }
 
+
 .auth-main {
   width: 60%; 
   display: flex;
@@ -375,11 +376,17 @@ input.input-error {
   border: 1px solid #E2E8F0;
   background-color: transparent;
   border-radius: 6px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #1F2937;
   cursor: pointer;
-  text-align: center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .switch-text {
