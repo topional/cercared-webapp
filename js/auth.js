@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginPasswordError.textContent = "Contraseña incorrecta.";
           } else {
                   localStorage.setItem('cercared_currentUser', JSON.stringify(existingUser));                 
+                  window.CercaRedNavbar?.updateAuthLink();
                   loginForm.reset();                
                   window.location.href = 'index.html';
                 }
