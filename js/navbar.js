@@ -3,16 +3,19 @@ const navMenu = document.querySelector(".nav-menu");
 const navLinks = document.querySelectorAll(".nav-menu a");
 
 function closeMenu() {
+  if (!navMenu || !navToggle) return;
   navMenu.classList.remove("is-open");
   navToggle.setAttribute("aria-expanded", "false");
   navToggle.setAttribute("aria-label", "Abrir menú");
 }
 
-navToggle.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-  navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-});
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+  });
+}
 
 navLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);

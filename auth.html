@@ -8,20 +8,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/auth.css" />
   <link rel="stylesheet" href="css/footer.css" />
 </head>
 <body>
 
-  <header class="auth-header">
-    <nav class="navbar">
-      <a class="brand" href="index.html">
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="CercaRed inicio">
         <img class="brand-logo" src="assets/images/logo.png" alt="CercaRed" />
       </a>
-      <div class="nav-menu">
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <img class="nav-toggle-icon" src="assets/icons/menu.svg" alt="" aria-hidden="true" />
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
         <a href="index.html">Catálogo</a>
         <a href="saved.html">Guardados</a>
-        <a href="auth.html" class="is-active">Acceso</a>
+        <a href="auth.html" class="is-active" aria-current="page">Acceso</a>
       </div>
     </nav>
   </header>
@@ -188,6 +194,7 @@
   </footer>
 
   <script src="js/auth.js"></script>
+  <script src="js/navbar.js"></script>
   <script src="js/footer.js"></script>
 </body>
 </html>
