@@ -27,18 +27,31 @@ window.addEventListener("resize", () => {
   }
 });
 
-//para cambiar el acceso por Mi perfil en todas las ventanas que el navbar si te logeas
-document.addEventListener('DOMContentLoaded', () => {
+function updateAuthLink() {
   const currentUserStr = localStorage.getItem('cercared_currentUser');
+  const navMenu = document.getElementById('nav-menu');
+  if (!navMenu) return;
+
+  const authLink = navMenu.querySelector('a[href="auth.html"], a[href="profile.html"]');
+  if (!authLink) return;
+
   if (currentUserStr) {
-    const navMenu = document.getElementById('nav-menu');
-    if (navMenu) {
-      const authLink = navMenu.querySelector('a[href="auth.html"]');
-      //se cambiará solo si esque hay un usuario logeado
-      if (authLink) {
-        authLink.textContent = 'Mi perfil';
-        authLink.href = 'profile.html';
-      }
-    }
+    authLink.textContent = 'Mi perfil';
+    authLink.href = 'profile.html';
+    authLink.classList.toggle('is-active', window.location.pathname.endsWith('/profile.html'));
+    if (window.location.pathname.endsWith('/profile.html')) authLink.setAttribute('aria-current', 'page');
+    else authLink.removeAttribute('aria-current');
+    return;
   }
-});
+
+  authLink.textContent = 'Acceso';
+  authLink.href = 'auth.html';
+  authLink.classList.toggle('is-active', window.location.pathname.endsWith('/auth.html'));
+  if (window.location.pathname.endsWith('/auth.html')) authLink.setAttribute('aria-current', 'page');
+  else authLink.removeAttribute('aria-current');
+}
+
+window.CercaRedNavbar = { updateAuthLink };
+
+document.addEventListener('DOMContentLoaded', updateAuthLink);
+window.addEventListener('storage', updateAuthLink);
