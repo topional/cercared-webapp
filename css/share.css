@@ -84,8 +84,18 @@
   height: 56px;
   place-items: center;
   border-radius: 50%;
-  color: #ffffff;
   transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.share-target-icon img {
+  width: 26px;
+  height: 26px;
+}
+
+.share-url-copy img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
 }
 
 .share-target:hover .share-target-icon,
