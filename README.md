@@ -44,7 +44,7 @@ El catálogo organiza los servicios en las siguientes categorías:
 1. Clona el proyecto:
 
    ```bash
-   git clone https://github.com/USUARIO/cercared-webapp.git
+   git clone https://github.com/topional/cercared-webapp.git
    ```
 
 2. Abre `index.html` en tu navegador, o usa una extensión tipo **Live Server** en VS Code para servirlo localmente.
