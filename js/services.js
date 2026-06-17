@@ -17,6 +17,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/pension65",
+    simple: {
+      about:
+        "El Estado te da S/ 350 cada dos meses si tienes 65 años o más y vives en situación de pobreza extrema. No necesitas pagar nada para recibirlo.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIDIS" },
+        { label: "Tipo", value: "Apoyo económico" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial y online" },
+      ],
+      needs: [
+        "Tener 65 años o más (con DNI vigente)",
+        "Estar registrado como pobre extremo en el SISFOH",
+        "No tener pensión del Estado (ONP, AFP u otro)",
+      ],
+      doSteps: [
+        "Revisar en SISFOH si estás clasificado como pobre extremo.",
+        "Ir a la oficina de Pensión 65 o a tu municipalidad con tu DNI.",
+        "El funcionario registra tus datos y verifica que cumples.",
+        "Te avisarán cuando empieces a recibir el pago.",
+      ],
+      places: [
+        { title: "Oficina Pensión 65 — Lima Centro", description: "Jr. Carabaya 341 · Lunes a viernes, 8am a 5pm" },
+        { title: "Teléfono gratuito: 0800-10828", description: "Lunes a viernes de 8am a 8pm · Sin costo" },
+      ],
+    },
     requirements: [
       {
         title: "Tener 65 años o más",
@@ -117,6 +142,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/sis",
+    simple: {
+      about:
+        "Un seguro de salud gratuito del Estado para que puedas atenderte en hospitales y centros de salud públicos si no tienes otro seguro.",
+      facts: [
+        { label: "Entidad que lo da", value: "MINSA" },
+        { label: "Tipo", value: "Salud" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial y virtual" },
+      ],
+      needs: [
+        "No tener otro seguro de salud",
+        "Estar registrado como pobre o pobre extremo en el SISFOH",
+        "Tener tu DNI vigente",
+      ],
+      doSteps: [
+        "Verifica tu clasificación en el SISFOH.",
+        "Lleva tu DNI al centro de salud más cercano.",
+        "Pide la afiliación en la ventanilla de Admisión.",
+        "Consulta en línea si ya quedaste afiliado.",
+      ],
+      places: [
+        { title: "Centros de Salud y Hospitales MINSA", description: "Acércate al más cercano a tu domicilio" },
+        { title: "Línea gratuita Infosalud: 0800-10828", description: "Atención para consultas del SIS" },
+      ],
+    },
     requirements: [
       {
         title: "No contar con otro seguro",
@@ -205,6 +255,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.pronabec.gob.pe/beca-18/",
+    simple: {
+      about:
+        "Una beca que paga tus estudios superiores completos si eres joven con buenas notas y pocos recursos. No pagas nada por estudiar.",
+      facts: [
+        { label: "Entidad que lo da", value: "PRONABEC" },
+        { label: "Tipo", value: "Educación" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Virtual" },
+      ],
+      needs: [
+        "Tener buen rendimiento académico",
+        "Estar registrado como pobre o pobre extremo",
+        "Lograr ingreso a una institución elegible",
+      ],
+      doSteps: [
+        "Revisa si cumples los requisitos.",
+        "Rinde el Examen Nacional de Preselección.",
+        "Postula e ingresa a una institución elegible.",
+        "Postula a la beca y revisa los resultados.",
+      ],
+      places: [
+        { title: "Plataforma virtual PRONABEC", description: "www.pronabec.gob.pe · Postulación en línea" },
+        { title: "Orientación al postulante", description: "Consultas sobre la beca y el proceso" },
+      ],
+    },
     requirements: [
       {
         title: "Alto rendimiento académico",
@@ -293,6 +368,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.mivivienda.com.pe/PORTALWEB/usuario-busca-viviendas/pagina.aspx?idpage=14",
+    simple: {
+      about:
+        "Un bono del Estado que te ayuda con dinero para comprar, construir o mejorar tu casa si tu familia tiene pocos ingresos.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIVIVIENDA" },
+        { label: "Tipo", value: "Vivienda" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial" },
+      ],
+      needs: [
+        "Formar un grupo familiar",
+        "No pasar el límite de ingresos",
+        "No tener otra propiedad",
+      ],
+      doSteps: [
+        "Inscribe a tu familia en el programa.",
+        "Espera la evaluación de tus datos.",
+        "Elige tu vivienda y aporta tu ahorro.",
+        "Recibe el Bono Familiar Habitacional.",
+      ],
+      places: [
+        { title: "Entidades Técnicas autorizadas", description: "Te ayudan con la inscripción y la vivienda" },
+        { title: "Fondo MIVIVIENDA", description: "www.mivivienda.com.pe · Información del bono" },
+      ],
+    },
     requirements: [
       {
         title: "Conformar un Grupo Familiar",
@@ -383,6 +483,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/qaliwarma",
+    simple: {
+      about:
+        "El Estado da desayunos y almuerzos gratis a los estudiantes de colegios públicos para que aprendan mejor alimentados.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIDIS" },
+        { label: "Tipo", value: "Alimentación" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial" },
+      ],
+      needs: [
+        "Estar matriculado en un colegio público",
+        "Ser de inicial, primaria o secundaria",
+        "Que el colegio esté afiliado",
+      ],
+      doSteps: [
+        "Verifica si el colegio está afiliado.",
+        "Matricula al estudiante en el colegio público.",
+        "El colegio gestiona la afiliación.",
+        "Consulta al comité de alimentación escolar.",
+      ],
+      places: [
+        { title: "Tu institución educativa pública", description: "El colegio gestiona el servicio" },
+        { title: "Plataforma Qali Warma", description: "www.gob.pe/qaliwarma · Información del programa" },
+      ],
+    },
     requirements: [
       {
         title: "Estar matriculado en colegio público",
@@ -469,6 +594,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/juntos",
+    simple: {
+      about:
+        "El Estado entrega dinero cada dos meses a hogares pobres que tienen gestantes, niños o adolescentes, para apoyar su salud y educación.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIDIS" },
+        { label: "Tipo", value: "Apoyo económico" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial y online" },
+      ],
+      needs: [
+        "Ser un hogar en situación de pobreza",
+        "Tener gestantes, niños o adolescentes",
+        "Cumplir los compromisos de salud y educación",
+      ],
+      doSteps: [
+        "Verifica si cumples los requisitos.",
+        "Prepara tus documentos y preséntalos.",
+        "Espera la evaluación del programa.",
+        "Cumple los compromisos de salud y educación.",
+      ],
+      places: [
+        { title: "Oficinas del Programa Juntos", description: "Atención en tu región" },
+        { title: "Plataforma Juntos", description: "www.gob.pe/juntos · Información y consultas" },
+      ],
+    },
     requirements: [
       {
         title: "Hogar en situación de pobreza",
@@ -569,6 +719,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/cunamas",
+    simple: {
+      about:
+        "El Estado cuida y apoya el desarrollo de tus hijos menores de 3 años si tu hogar está en situación de pobreza. Es un servicio gratuito.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIDIS" },
+        { label: "Tipo", value: "Cuidado infantil" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial" },
+      ],
+      needs: [
+        "Tener un niño menor de 36 meses",
+        "Ser un hogar en situación de pobreza",
+        "Vivir en zona donde hay el servicio",
+      ],
+      doSteps: [
+        "Verifica si cumples los requisitos.",
+        "Prepara tus documentos.",
+        "Acércate al servicio Cuna Más más cercano.",
+        "Espera la evaluación e inicia la atención.",
+      ],
+      places: [
+        { title: "Servicios Cuna Más", description: "Atención en tu comunidad" },
+        { title: "Plataforma Cuna Más", description: "www.gob.pe/cunamas · Información del servicio" },
+      ],
+    },
     requirements: [
       {
         title: "Tener un menor de 36 meses",
@@ -669,6 +844,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/contigo",
+    simple: {
+      about:
+        "Una pensión que el Estado entrega cada dos meses a personas con discapacidad severa que viven en situación de pobreza.",
+      facts: [
+        { label: "Entidad que lo da", value: "MIDIS" },
+        { label: "Tipo", value: "Apoyo económico" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial y online" },
+      ],
+      needs: [
+        "Tener discapacidad severa certificada",
+        "Estar en situación de pobreza",
+        "No recibir otra pensión o ingreso",
+      ],
+      doSteps: [
+        "Verifica si cumples los requisitos.",
+        "Prepara tus documentos y preséntalos.",
+        "Espera la evaluación del programa.",
+        "Consulta el estado de tu solicitud.",
+      ],
+      places: [
+        { title: "Oficinas del Programa Contigo", description: "Atención en tu región" },
+        { title: "Plataforma Contigo", description: "www.gob.pe/contigo · Información y consultas" },
+      ],
+    },
     requirements: [
       {
         title: "Tener discapacidad severa",
@@ -769,6 +969,31 @@ window.CercaRedServices = [
     scope: "Nacional",
     cost: "Gratuito",
     officialUrl: "https://www.gob.pe/fise",
+    simple: {
+      about:
+        "El Estado te da un vale de descuento para comprar tu balón de gas más barato, si tu hogar es vulnerable.",
+      facts: [
+        { label: "Entidad que lo da", value: "MINEM" },
+        { label: "Tipo", value: "Energía" },
+        { label: "Costo", value: "Completamente gratuito", highlight: true },
+        { label: "Cómo se atiende", value: "Presencial y virtual" },
+      ],
+      needs: [
+        "Ser beneficiario de un programa social",
+        "Ser un hogar en situación de pobreza",
+        "Tener DNI vigente",
+      ],
+      doSteps: [
+        "Verifica si cumples los requisitos.",
+        "Consulta tu vale de descuento digital.",
+        "Acude a un establecimiento afiliado.",
+        "Compra tu balón de gas con el descuento.",
+      ],
+      places: [
+        { title: "Establecimientos afiliados al FISE", description: "Venta de gas con descuento" },
+        { title: "Plataforma FISE", description: "www.gob.pe/fise · Consulta tu vale" },
+      ],
+    },
     requirements: [
       {
         title: "Ser beneficiario de un programa social",
