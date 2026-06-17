@@ -7,7 +7,7 @@
 
 Aplicación web del catálogo de **CercaRed**, la plataforma que ayuda a las personas a encontrar información clara y verificada sobre servicios sociales del Estado. Desde aquí el usuario puede buscar servicios por palabra clave, filtrar por categoría, distrito y modalidad, revisar requisitos, documentos y pasos de acceso, consultar los canales oficiales de atención, y guardar o compartir cada servicio. Es un proyecto estático (HTML, CSS y JavaScript puro), sin frameworks ni dependencias de build.
 
-Esta es la aplicación a la que enlaza el [landing page de CercaRed](https://github.com/) a través del botón "Buscar servicios".
+Esta es la aplicación a la que enlaza el [landing page de CercaRed](https://cercared.netlify.app/) a través del botón "Buscar servicios".
 
 ## Funcionalidades
 
