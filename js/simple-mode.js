@@ -1,17 +1,13 @@
-// simple-mode.js — Modo simple / normal (SCRUM-26 / US12)
-// Reemplaza el detalle por una vista simplificada (service.simple).
-// Observa el contenedor: si detail.js vuelve a renderizar, reaplica el modo simple.
 (function () {
   const KEY = "cercared_simple_mode";
   const root = document.documentElement;
   const isOn = () => localStorage.getItem(KEY) === "on";
+  const SIMPLE_DISTRITOS = ["Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclacayo", "Chorrillos", "Cieneguilla", "Comas", "El Agustino", "Independencia", "Jesús María", "La Molina", "La Victoria", "Lima (Cercado)", "Lince", "Los Olivos", "Lurigancho-Chosica", "Lurín", "Magdalena del Mar", "Miraflores", "Pachacámac", "Pucusana", "Pueblo Libre", "Puente Piedra", "Punta Hermosa", "Punta Negra", "Rímac", "San Bartolo", "San Borja", "San Isidro", "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis", "San Martín de Porres", "San Miguel", "Santa Anita", "Santa María del Mar", "Santa Rosa", "Santiago de Surco", "Surquillo", "Villa El Salvador", "Villa María del Triunfo"];
 
   function getMain() {
-    return (
-      document.querySelector(".detail-main") ||
-      document.querySelector("#service-detail") ||
-      document.querySelector("main")
-    );
+    return document.querySelector(".detail-main") ||
+           document.querySelector("#service-detail") ||
+           document.querySelector("main");
   }
 
   function currentService() {
@@ -50,6 +46,7 @@
       `<li><span class="s-step-num${i === d.doSteps.length - 1 ? " s-step-last" : ""}">${i + 1}</span><span>${p}</span></li>`).join("");
     const places = d.places.map((p) =>
       `<div class="s-place"><strong>${p.title}</strong><span>${p.description}</span></div>`).join("");
+    const options = ["<option>Elige tu distrito</option>"].concat(SIMPLE_DISTRITOS.map((d)=>`<option value="${d}">${d}</option>`)).join("");
     return `
       <div class="simple-view">
         <nav class="simple-crumbs"><a href="index.html">Catálogo</a> → <span>${s.name}</span></nav>
@@ -60,18 +57,15 @@
         <section class="s-card"><h2>¿Qué tengo que hacer?</h2><ol class="s-steps">${steps}</ol></section>
         <section class="s-card">
           <h2>¿Dónde me atienden?</h2>
-          <label class="s-select"><span class="visually-hidden">Elige tu distrito</span><select><option>Elige tu distrito</option></select></label>
+          <label class="s-select"><span class="visually-hidden">Elige tu distrito</span><select>${options}</select></label>
           ${places}
           <a class="s-official" href="${s.officialUrl}" target="_blank" rel="noreferrer">Ir al canal oficial →</a>
-          <button class="s-summary summary-button" type="button">Generar resumen para compartir</button>
+          <button class="s-summary" type="button">Generar resumen para compartir</button>
         </section>
       </div>`;
   }
 
-  let applying = false; // evita bucles cuando nosotros mismos modificamos el main
-
-  function render() {
-    const on = isOn();
+  function apply(on) {
     root.classList.toggle("simple-mode", on);
     document.querySelectorAll(".simple-mode-button").forEach((b) => {
       b.textContent = on ? "Modo normal" : "Modo simple";
@@ -80,46 +74,46 @@
 
     const main = getMain();
     if (!main) { banner(on); return; }
+    const layout = main.querySelector(".detail-layout");
+    const view = main.querySelector(".simple-view");    
 
     if (on) {
       const service = currentService();
       if (!service || !service.simple) { banner(true, "warn"); return; }
-      // Solo reemplaza si aún no está la vista simple (evita reescribir en bucle)
-      if (!main.querySelector(".simple-view")) {
-        applying = true;
-        main.innerHTML = simpleHTML(service);
-        applying = false;
-      }
+      if (layout) layout.style.display = "none";      // ocultar (no borrar)
+      if (!view) main.insertAdjacentHTML("beforeend", simpleHTML(service));
       banner(true);
     } else {
+      if (view) view.remove();
+      if (layout) layout.style.display = "";        
       banner(false);
-      // si quedó la vista simple puesta, recargamos para restaurar el detalle normal
-      if (main.querySelector(".simple-view")) location.reload();
     }
   }
 
   function toggle() {
     localStorage.setItem(KEY, isOn() ? "off" : "on");
-    if (!isOn()) { location.reload(); return; } // al apagar, recarga para traer el detalle normal
-    render();
+    apply(isOn());
   }
 
   document.addEventListener("click", (e) => {
     if (e.target.closest(".simple-mode-button")) toggle();
   });
 
-  // Observa el contenedor: si detail.js lo re-renderiza, reaplicamos el modo simple.
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".s-summary")) return;
+    const original = document.querySelector(".detail-layout .summary-button");
+    if (original) original.click();
+  });
+
   function watch() {
     const main = getMain();
     if (!main) return;
-    const obs = new MutationObserver(() => {
-      if (applying) return;
-      if (isOn() && !main.querySelector(".simple-view")) render();
-    });
-    obs.observe(main, { childList: true });
+    new MutationObserver(() => {
+      if (isOn() && !main.querySelector(".simple-view")) apply(true);
+    }).observe(main, { childList: true });
   }
 
-  function init() { render(); watch(); }
+  function init() { apply(isOn()); watch(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
