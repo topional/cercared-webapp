@@ -1,0 +1,49 @@
+.simple-mode-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px var(--space-4);
+  color: var(--color-primary);
+  background: var(--color-soft);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+html.simple-mode main { line-height: 1.75; }
+html.simple-mode main p,
+html.simple-mode main li,
+html.simple-mode main label,
+html.simple-mode main span,
+html.simple-mode main a,
+html.simple-mode main button { font-size: 20px; }
+html.simple-mode main h3 { font-size: 26px; }
+
+html.simple-mode main button,
+html.simple-mode .details-button,
+html.simple-mode .share-button,
+html.simple-mode .official-channel,
+html.simple-mode .summary-button { min-height: 60px; }
+
+html.simple-mode .detail-layout,
+html.simple-mode .detail-columns { display: block; }
+html.simple-mode .detail-content > *,
+html.simple-mode .stacked-cards { margin-bottom: var(--space-4); }
+
+html.simple-mode section[aria-labelledby="documents-title"],
+html.simple-mode section[aria-labelledby="procedure-title"],
+html.simple-mode .channels-section,
+html.simple-mode .detail-sidebar .sidebar-card:not(.summary-card) {
+  display: none;
+}
+
+html.simple-mode .simple-mode-button {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+}
+
+html.simple-mode .simple-mode-button:hover,
+html.simple-mode .simple-mode-button:focus-visible {
+  background: var(--color-soft);
+}
