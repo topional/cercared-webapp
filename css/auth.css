@@ -214,8 +214,15 @@ input.input-error {
   border-color: #D32F2F;
   background-image: url('../assets/images/error.png');
   background-repeat: no-repeat;
-  background-position: right 16px center;
+  background-position: right 16px center; 
   background-size: 16px;
+}
+
+input[type="password"].input-error,
+input[type="text"].input-error#registerPassword, 
+input[type="text"].input-error#registerConfirmPassword,
+input[type="text"].input-error#loginPassword {
+  background-position: right 38px center;
 }
 
 .error-message {

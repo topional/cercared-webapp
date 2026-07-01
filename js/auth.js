@@ -149,15 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailValue = registerEmail.value.trim();
     const passwordValue = registerPassword.value.trim();
     const confirmPasswordValue = registerConfirmPassword.value.trim();
+    const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/; 
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
 
-    if (nameValue === "") {
+    registerPasswordError.textContent = "";
+    registerPassword.classList.remove('input-error');
+    registerConfirmPasswordError.textContent = "";
+    registerConfirmPassword.classList.remove('input-error');
+
+if (nameValue === "") {
       registerNameError.textContent = "Por favor, ingresa tu nombre completo.";
+      registerName.classList.add('input-error');
+      isRegisterValid = false;
+    } else if (!regexNombre.test(nameValue)) {
+      registerNameError.textContent = "El nombre no debe contener números ni caracteres especiales.";
       registerName.classList.add('input-error');
       isRegisterValid = false;
     } else {
       registerNameError.textContent = "";
       registerName.classList.remove('input-error');
     }
+
 
     if (emailValue === "" || !emailRegex.test(emailValue)) {
       registerEmailError.textContent = "Correo inválido.";
@@ -168,13 +180,24 @@ document.addEventListener('DOMContentLoaded', () => {
       registerEmail.classList.remove('input-error');
     }
 
-    if (passwordValue === "" || passwordValue !== confirmPasswordValue) {
+    if (passwordValue === "") {
+      registerPasswordError.textContent = "Por favor, ingresa tu contraseña.";
+      registerPassword.classList.add('input-error');
+      isRegisterValid = false;
+    } else if (!passwordRegex.test(passwordValue)) {
+      registerPasswordError.textContent = "Debe tener más de 8 caracteres, incluir al menos un número y un símbolo (@$!%*?&.).";
+      registerPassword.classList.add('input-error');
+      isRegisterValid = false;
+    }
+
+    if (confirmPasswordValue === "") {
+      registerConfirmPasswordError.textContent = "Por favor, confirma tu contraseña.";
+      registerConfirmPassword.classList.add('input-error');
+      isRegisterValid = false;
+    } else if (passwordValue !== confirmPasswordValue) {
       registerConfirmPasswordError.textContent = "Las contraseñas no coinciden.";
       registerConfirmPassword.classList.add('input-error');
       isRegisterValid = false;
-    } else {
-      registerConfirmPasswordError.textContent = "";
-      registerConfirmPassword.classList.remove('input-error');
     }
 
     if (!registerTerms.checked) {
